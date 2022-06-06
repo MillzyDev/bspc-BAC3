@@ -6,8 +6,8 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("BAC3")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyDescription("Like the mod PAC3 for Garry's Mod except for Beat Saber. You can place objects on your avatar and your sabers! Multiplayer is supported.")]
+[assembly: AssemblyConfiguration("debug")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("BAC3")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]

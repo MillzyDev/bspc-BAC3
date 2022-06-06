@@ -1,14 +1,14 @@
 ﻿{
   "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
-  "id": "bac3",
-  "name": "BAC3",
   "author": "Millzy",
-  "version": "0.0.1",
-  "description": "Like the mod PAC3 for Garry's Mod except for Beat Saber. You can place objects on your avatar and your sabers! Multiplayer is supported.",
-  "gameVersion": "1.22.1",
   "dependsOn": {
     "BSIPA": "^4.2.0",
     "SiraUtil": "^6.0.2",
     "BeatSaberMarkupLanguage": "^1.6.6"
-  }
+  },
+  "description": "Like the mod PAC3 for Garry's Mod except for Beat Saber. You can place objects on your avatar and your sabers! Multiplayer is supported.",
+  "gameVersion": "1.22.1",
+  "id": "bac3",
+  "name": "BAC3",
+  "version": "0.0.1"
 }
