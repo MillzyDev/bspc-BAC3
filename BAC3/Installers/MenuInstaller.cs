@@ -8,6 +8,7 @@ namespace BAC3.Installers
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<AvatarManager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<EditorUIManager>().AsSingle();
         }
     }
 }
