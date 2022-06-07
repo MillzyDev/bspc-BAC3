@@ -1,10 +1,8 @@
 ﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
 	xsi:schemaLocation='https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'
 	>
-	<vertical child-align='LowerCenter'>
-		<horizontal>
-			<button text='Revert'></button>
-			<action-button text='Save'></action-button>
-		</horizontal>
-	</vertical>
+	<horizontal child-align='LowerCenter' spacing='-110' anchor-pos-y='-20'>
+		<button text='Revert'></button>
+		<action-button text='Save'></action-button>
+	</horizontal>
 </bg>
