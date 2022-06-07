@@ -114,10 +114,13 @@
   <ItemGroup>
     <Compile Include="Installers\MenuInstaller.cs" />
     <Compile Include="Managers\AvatarManager.cs" />
+    <Compile Include="Managers\EditorUIManager.cs" />
     <Compile Include="ObjectUtils.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Configuration\PluginConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\FlowCoordinators\EditorFlowCoordinator.cs" />
+    <Compile Include="UI\ViewControllers\EditorMainViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="manifest.json" />
