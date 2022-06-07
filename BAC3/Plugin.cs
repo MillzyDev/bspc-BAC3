@@ -1,4 +1,5 @@
 ﻿using BAC3.Configuration;
+using BAC3.Installers;
 using HarmonyLib;
 using IPA;
 using IPA.Config;
@@ -30,6 +31,8 @@ namespace BAC3
 
             HarmonyInstance = new Harmony(Assembly.GetExecutingAssembly().FullName);
             HarmonyInstance.PatchAll();
+
+            zenjector.Install<MenuInstaller>(Location.Menu);
 
             Logger.Info("BAC3 initialized.");
         }
