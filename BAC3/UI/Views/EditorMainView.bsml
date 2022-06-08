@@ -1,8 +1,11 @@
 ﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
 	xsi:schemaLocation='https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'
 	>
-	<horizontal child-align='LowerCenter' spacing='-110' anchor-pos-y='-20'>
-		<button text='Revert'></button>
-		<action-button text='Save'></action-button>
-	</horizontal>
+	<vertical child-align='LowerCenter'>
+		<slider-setting text='' max='180' min='-180' show-buttons='true' increment='1' anchor-pos-y='-30'></slider-setting>
+		<horizontal spacing='5'>
+			<button text='Revert'></button>
+			<action-button text='Save'></action-button>
+		</horizontal>
+	</vertical>
 </bg>
