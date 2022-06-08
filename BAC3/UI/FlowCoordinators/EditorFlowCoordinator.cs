@@ -25,6 +25,7 @@ namespace BAC3.UI.FlowCoordinators
                 ProvideInitialViewControllers(_editorMainViewController);
 
                 _avatar = Instantiate(AvatarManager.Instance.AvatarPrefab);
+                _avatar.name = "BAC3EditorAvatar";
                 _avatar.transform.position = new Vector3(0f, 0.3f, 4.5f);
                 _avatar.transform.eulerAngles = new Vector3(0f, 200f, 0f);
             }
