@@ -1,4 +1,5 @@
-﻿using BAC3.UI.ViewControllers;
+﻿using BAC3.Managers;
+using BAC3.UI.ViewControllers;
 using BeatSaberMarkupLanguage;
 using HMUI;
 using UnityEngine;
@@ -22,7 +23,18 @@ namespace BAC3.UI.FlowCoordinators
                     _editorMainViewController = BeatSaberUI.CreateViewController<EditorMainViewController>();
 
                 ProvideInitialViewControllers(_editorMainViewController);
+
+                _avatar = Instantiate(AvatarManager.Instance.AvatarPrefab);
+                _avatar.transform.position = new Vector3(0f, 0.3f, 4.5f);
+                _avatar.transform.eulerAngles = new Vector3(0f, 200f, 0f);
             }
+
+            _avatar.SetActive(true);
+        }
+
+        protected override void DidDeactivate(bool removedFromHierarchy, bool screenSystemDisabling)
+        {
+            _avatar.SetActive(false);
         }
 
         protected override void BackButtonWasPressed(ViewController topViewController)
