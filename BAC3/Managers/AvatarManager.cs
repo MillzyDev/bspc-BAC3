@@ -1,9 +1,4 @@
 ﻿using IPA.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -61,7 +56,37 @@ namespace BAC3.Managers
 
             Plugin.Logger.Debug("Successfully set all avatar sprites and meshes!");
 
+            Color color = partsModel.GetSkinColorById(data.skinColorId).Color;
+            Color color1 = data.handsColor;
+            
+            visualController.GetField<MulticolorAvatarPartPropertyBlockSetter, AvatarVisualController>("_headTopPropertyBlockColorSetter").SetColors(
+                data.headTopPrimaryColor,
+                data.headTopSecondaryColor
+                );
 
+            visualController.GetField<MulticolorAvatarPartPropertyBlockSetter, AvatarVisualController>("_clothesPropertyBlockSetter").SetColors(
+                data.clothesPrimaryColor,
+                data.clothesSecondaryColor,
+                data.clothesDetailColor
+                );
+
+            visualController.GetField<MulticolorAvatarPartPropertyBlockSetter, AvatarVisualController>("_leftHandPropertyBlockSetter").SetColors(
+                color,
+                color1
+                );
+
+            visualController.GetField<MulticolorAvatarPartPropertyBlockSetter, AvatarVisualController>("_rightHandPropertyBlockSetter").SetColors(
+                color,
+                color1
+                );
+
+            visualController.GetField<AvatarPropertyBlockColorSetter, AvatarVisualController>("_glassesPropertyBlockColorSetter").SetColor(data.glassesColor);
+
+            visualController.GetField<AvatarPropertyBlockColorSetter, AvatarVisualController>("_facialHairPropertyBlockColorSetter").SetColor(color);
+
+            visualController.GetField<AvatarPropertyBlockColorSetter, AvatarVisualController>("_skinPropertyBlockColorSetter").SetColor(color);
+
+            Plugin.Logger.Debug("Successfully set all avatar colors!");
         }
     }
 }
