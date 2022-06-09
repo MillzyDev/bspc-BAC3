@@ -17,8 +17,8 @@ namespace BAC3.Managers
 
         public void Initialize()
         {
-            AvatarPrefab = ObjectUtils.FindObject<AvatarPoseController>("PlayerAvatar", false);
-            var visualController = AvatarPrefab.GetComponent<AvatarVisualController>();
+            AvatarPrefab = ObjectUtils.FindObject<AvatarTweenController>("AnimatedAvatar", false);
+            var visualController = AvatarPrefab.GetComponentInChildren<AvatarVisualController>();
             LoadAvatarData(ref visualController);
             s_instance = this;
         }
@@ -40,7 +40,8 @@ namespace BAC3.Managers
 
             Plugin.Logger.Debug("Successfully set all avatar sprites and meshes!");
 
-            // TODO: Colours
+            visualController.UpdateAvatarVisual(data);
+            AvatarPrefab.GetComponent<AvatarTweenController>().PresentAvatar();
 
             Plugin.Logger.Debug("Successfully set all avatar colors!");
         }
