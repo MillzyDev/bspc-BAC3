@@ -7,10 +7,11 @@ namespace BAC3.Managers
 {
     class AvatarManager : IInitializable
     {
-        private static AvatarManager s_instance = null;
-        public static AvatarManager Instance
+        private readonly AvatarDataModel _avatarDataModel;
+
+        public AvatarManager(AvatarDataModel avatarDataModel)
         {
-            get => s_instance;
+            _avatarDataModel = avatarDataModel;
         }
 
         public GameObject AvatarPrefab { get; private set; }
@@ -20,18 +21,14 @@ namespace BAC3.Managers
             AvatarPrefab = ObjectUtils.FindObject<AvatarTweenController>("AnimatedAvatar", false);
             var visualController = AvatarPrefab.GetComponentInChildren<AvatarVisualController>();
             LoadAvatarData(ref visualController);
-            s_instance = this;
         }
 
         public void LoadAvatarData(ref AvatarVisualController visualController)
         {
             Plugin.Logger.Debug("Setting visual avatar data");
-            AvatarDataModel[] trs = Resources.FindObjectsOfTypeAll<AvatarDataModel>();
-            Plugin.Logger.Debug($"There are {trs.Length} AvatarDataModels");
 
             // match visuals === begin ===
-            AvatarDataModel dataModel = trs.First((x) => x.avatarData != null);
-            AvatarData data = dataModel.avatarData;
+            AvatarData data = _avatarDataModel.avatarData;
             AvatarPartsModel partsModel = ReflectionUtil.GetField<AvatarPartsModel, AvatarDataModel>(trs[0], "_avatarPartsModel");
 
             // we set this so an exception isnt thrown when UpdateAvatarVisual() invokes UpdateAvatarColors()
