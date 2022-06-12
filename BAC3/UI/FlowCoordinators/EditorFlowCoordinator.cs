@@ -11,9 +11,15 @@ namespace BAC3.UI.FlowCoordinators
 {
     internal class EditorFlowCoordinator : FlowCoordinator
     {
-        EditorMainViewController _editorMainViewController;
+        private readonly EditorMainViewController _editorMainViewController;
+        private readonly AvatarManager _avatarManager;
+        private GameObject _avatar;
 
-        GameObject _avatar;
+        public EditorFlowCoordinator(EditorMainViewController editorMainViewController, AvatarManager avatarManager)
+        {
+            _editorMainViewController = editorMainViewController;
+            _avatarManager = avatarManager;
+        }
 
         protected override void DidActivate(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
         {
@@ -22,12 +28,9 @@ namespace BAC3.UI.FlowCoordinators
                 SetTitle("BAC3 Editor");
                 showBackButton = true;
 
-                if (_editorMainViewController == null)
-                    _editorMainViewController = BeatSaberUI.CreateViewController<EditorMainViewController>();
-
                 ProvideInitialViewControllers(_editorMainViewController);
 
-                _avatar = Instantiate(AvatarManager.Instance.AvatarPrefab);
+                _avatar = Instantiate(_avatarManager.AvatarPrefab);
                 _avatar.name = "BAC3EditorAnimatedAvatar";
                 _avatar.transform.position = new Vector3(0f, -0.6f, 4f);
                 _avatar.transform.eulerAngles = new Vector3(0f, 200f, 0f);     

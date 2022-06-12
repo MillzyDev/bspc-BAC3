@@ -8,13 +8,12 @@ namespace BAC3.Managers
 {
     internal class EditorUIManager : IInitializable, IDisposable
     {
-        AvatarManager _avatarManager;
-        MenuButton _menuButton;
-        EditorFlowCoordinator flow;
+        private MenuButton _menuButton;
+        private readonly EditorFlowCoordinator _editorFlowCoordinator;
 
-        EditorUIManager(AvatarManager avatarManager)
+        EditorUIManager(EditorFlowCoordinator editorFlowCoordinator)
         {
-            _avatarManager = avatarManager;
+            _editorFlowCoordinator = editorFlowCoordinator;
         }
 
         public void Initialize()
@@ -25,17 +24,12 @@ namespace BAC3.Managers
 
         void OnMenuButtonClick()
         {
-            if (flow == null)
-                flow = BeatSaberUI.CreateFlowCoordinator<EditorFlowCoordinator>();
-
-            flow.Show();
+            _editorFlowCoordinator.Show();
         }
 
         public void Dispose()
         {
             MenuButtons.instance.UnregisterButton(_menuButton);
         }
-
-        
     }
 }
